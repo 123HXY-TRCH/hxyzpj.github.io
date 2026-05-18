@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<!-- saved from url=(0136)file:///c%3A/Users/admin/AppData/Roaming/TRAE%20SOLO/ModularData/ai-agent/work-mode-projects/6a0a74f34f75531ffbaf8046/12345.html#contact -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>star — UI &amp; 视觉设计师作品集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./star — UI &amp; 视觉设计师网页作品集_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FFF9F2;
+    --brown-dark: #3A2B20;
+    --brown: #5C4A3A;
+    --brown-light: #8B7A6A;
+    --orange: #E8734A;
+    --blue: #6B9FD4;
+    --green: #8FBF6A;
+    --yellow: #F0D26A;
+    --pink: #E8A0BF;
+    --border-radius: 16px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    cursor: none;
+    background: var(--cream);
+    color: var(--brown-dark);
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+
+  body {
+    overflow-x: hidden;
+    background: var(--cream);
+  }
+
+  /* Custom Cursor */
+  .cursor-dot, .cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999;
+    mix-blend-mode: difference;
+  }
+  .cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--orange);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background 0.2s;
+  }
+  .cursor-ring {
+    width: 42px;
+    height: 42px;
+    border: 2px solid var(--orange);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, border-color 0.3s;
+  }
+
+  /* Hand-drawn SVG decorations */
+  .doodle {
+    position: absolute;
+    opacity: 0.85;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Navigation */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(255,249,242,0.85);
+    backdrop-filter: blur(12px);
+    transition: transform 0.4s;
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .nav-logo {
+    font-family: 'Caveat', cursive;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--brown-dark);
+    text-decoration: none;
+    cursor: none;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 36px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--brown-light);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    transition: color 0.3s;
+    cursor: none;
+    position: relative;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--orange);
+    transition: width 0.3s;
+  }
+
+  nav a:hover {
+    color: var(--brown-dark);
+  }
+
+  nav a:hover::after {
+    width: 100%;
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 120px 48px 80px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 700px;
+  }
+
+  .hero-greeting {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 2rem;
+    color: var(--brown-dark);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .hero-greeting .hi {
+    font-family: 'ZCOOL KuaiLe', 'Caveat', cursive;
+    color: var(--orange);
+    display: inline-block;
+    margin-right: 6px;
+    animation: hiPop 2.2s ease-in-out infinite;
+    transform-origin: 50% 80%;
+  }
+  .hero-greeting .name {
+    position: relative;
+    display: inline-block;
+    padding: 0 6px;
+    margin-left: 6px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    background: linear-gradient(90deg, #FF6FAE, #C77DFF, #6B9FD4, #8FBF6A, #FF6FAE);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    z-index: 0;
+    animation: nameGradient 4s linear infinite, nameFloat 3.2s ease-in-out infinite;
+  }
+  .hero-greeting .name::after {
+    content: '';
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    /* underline sits BELOW the glyphs */
+    bottom: -0.18em;
+    height: 0.42em;
+    background: rgba(240, 210, 106, 0.9);
+    border-radius: 999px;
+    z-index: -1;
+    transform-origin: left center;
+    animation: underlineDraw 0.8s ease-out both, underlinePulse 2.8s ease-in-out infinite 0.9s;
+  }
+  .hero-greeting .name::before {
+    content: '✦';
+    position: absolute;
+    left: -14px;
+    top: -10px;
+    font-size: 0.85rem;
+    color: rgba(232, 115, 74, 0.9);
+    transform: rotate(-10deg);
+    animation: sparkle 2.6s ease-in-out infinite;
+  }
+
+  @keyframes hiPop {
+    0%, 100% { transform: translateY(0) rotate(-2deg) scale(1); }
+    50% { transform: translateY(-6px) rotate(2deg) scale(1.04); }
+  }
+  @keyframes nameGradient {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+  @keyframes nameFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  @keyframes underlineDraw {
+    from { transform: scaleX(0.2); opacity: 0.3; }
+    to { transform: scaleX(1); opacity: 0.92; }
+  }
+  @keyframes underlinePulse {
+    0%, 100% { transform: scaleX(1); opacity: 0.88; }
+    50% { transform: scaleX(0.94); opacity: 1; }
+  }
+  @keyframes sparkle {
+    0%, 100% { opacity: 0.4; transform: translateY(2px) rotate(-10deg) scale(0.9); }
+    50% { opacity: 1; transform: translateY(-2px) rotate(8deg) scale(1.05); }
+  }
+
+  .hero-intro {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 1.5rem;
+    color: var(--brown-light);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .hero-subtitle {
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    color: var(--orange);
+    margin-top: 12px;
+  }
+
+  .hero-cta {
+    margin-top: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: var(--brown-dark);
+    color: var(--cream);
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: none;
+    border: none;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+
+  .btn-primary:hover {
+    background: var(--orange);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(232,115,74,0.3);
+  }
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--brown-light);
+    font-size: 0.8rem;
+    z-index: 10;
+  }
+
+  .scroll-arrow {
+    width: 24px;
+    height: 24px;
+    border-right: 2px solid var(--brown-light);
+    border-bottom: 2px solid var(--brown-light);
+    transform: rotate(45deg);
+    animation: scrollBounce 2s infinite;
+  }
+
+  @keyframes scrollBounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(8px); }
+  }
+
+  /* Section styling */
+  section {
+    position: relative;
+    z-index: 5;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .section-label {
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    color: var(--orange);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Source Han Sans SC', 'Noto Sans SC', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--brown-dark);
+  }
+
+  /* Projects Section */
+  .projects {
+    padding: 100px 48px 120px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .project-card {
+    display: block;
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(58,43,32,0.06);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: none;
+    position: relative;
+    transform: perspective(1200px) rotateX(0) rotateY(0);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .project-card:hover {
+    transform: perspective(1200px) translateY(-8px) rotateX(2deg) rotateY(-2deg);
+    box-shadow: 0 20px 50px rgba(58,43,32,0.12);
+  }
+
+  .project-thumbnail {
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .project-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s;
+  }
+
+  .project-card:hover .project-thumbnail img {
+    transform: scale(1.05);
+  }
+
+  .project-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    backdrop-filter: blur(8px);
+  }
+
+  .badge-mobile { background: rgba(107,159,212,0.9); color: white; }
+  .badge-web { background: rgba(143,191,106,0.9); color: white; }
+  .badge-bend { background: rgba(232,115,74,0.9); color: white; }
+  .badge-brand { background: rgba(232,160,191,0.9); color: white; }
+
+  .project-body {
+    padding: 28px 32px 32px;
+  }
+
+  .project-category {
+    font-size: 0.8rem;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .project-name {
+    font-family: 'Source Han Sans SC', 'Noto Sans SC', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--brown-dark);
+    margin-bottom: 10px;
+  }
+
+  .project-desc {
+    font-size: 0.95rem;
+    color: var(--brown-light);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .project-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .project-tag {
+    padding: 4px 14px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    background: var(--cream);
+    color: var(--brown);
+    border: 1px solid rgba(139,122,106,0.15);
+  }
+
+  /* About Section */
+  .about {
+    padding: 120px 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-image {
+    position: relative;
+  }
+
+  .about-avatar {
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: 200px 200px 24px 24px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #f5e6d3, #e8d5c0);
+  }
+
+  .about-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-avatar::after {
+    content: '✨';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 2.5rem;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .about-float-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--orange);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 16px;
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    box-shadow: 0 8px 24px rgba(232,115,74,0.3);
+    animation: float 4s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .about-text h3 {
+    font-family: 'Source Han Sans SC', 'Noto Sans SC', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--brown-dark);
+  }
+
+  .about-text p {
+    font-size: 1.05rem;
+    color: var(--brown-light);
+    line-height: 1.9;
+    margin-bottom: 16px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: white;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    color: var(--brown);
+    transition: all 0.3s;
+  }
+
+  .skill-item:hover {
+    background: var(--orange);
+    color: white;
+    transform: translateX(4px);
+  }
+
+  .skill-icon {
+    font-size: 1.2rem;
+  }
+
+  /* Contact Section */
+  .contact {
+    padding: 120px 48px;
+    text-align: center;
+    position: relative;
+  }
+
+  .contact-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 32px;
+    padding: 60px 48px;
+    box-shadow: 0 8px 40px rgba(58,43,32,0.08);
+    position: relative;
+  }
+
+  .contact-card h3 {
+    font-family: 'Source Han Sans SC', 'Noto Sans SC', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .contact-card p {
+    color: var(--brown-light);
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    cursor: none;
+    font-size: 0.95rem;
+  }
+
+  /* Copy tooltip */
+  .contact-link.copyable {
+    position: relative;
+    padding-right: 64px;
+  }
+  .contact-link.copyable::after {
+    content: '复制';
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    line-height: 1;
+    padding: 5px 10px;
+    border-radius: 999px;
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    background: rgba(58,43,32,0.08);
+    border: 1px solid rgba(58,43,32,0.12);
+    color: inherit;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .contact-link.copyable:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateY(-2px);
+  }
+  .contact-link.copyable.copied::after {
+    content: '已复制';
+    opacity: 1;
+  }
+  .link-email.copyable::after {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: rgba(255,255,255,0.92);
+  }
+
+  .link-email {
+    background: var(--brown-dark);
+    color: var(--cream);
+  }
+
+  .link-email:hover {
+    background: var(--orange);
+    transform: translateY(-2px);
+  }
+
+  .link-social {
+    background: var(--cream);
+    color: var(--brown);
+    border: 1px solid rgba(139,122,106,0.2);
+  }
+
+  .link-social:hover {
+    background: var(--blue);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-2px);
+  }
+
+  /* Q&A (mini chat) */
+  .qa {
+    padding: 120px 48px;
+    text-align: center;
+    position: relative;
+  }
+  .qa-card {
+    max-width: 720px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 32px;
+    padding: 36px 28px 28px;
+    box-shadow: 0 8px 40px rgba(58,43,32,0.08);
+    position: relative;
+    text-align: left;
+  }
+  .qa-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .qa-title {
+    margin: 0;
+    font-family: 'Source Han Sans SC', 'Noto Sans SC', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--brown-dark);
+  }
+  .qa-subtitle {
+    margin: 0;
+    color: var(--brown-light);
+    font-size: 0.92rem;
+  }
+  .qa-messages {
+    height: 320px;
+    overflow: auto;
+    padding: 10px 6px 6px;
+    border-radius: 20px;
+    background: rgba(255,249,242,0.7);
+    border: 1px solid rgba(139,122,106,0.16);
+  }
+  .qa-msg {
+    display: flex;
+    gap: 10px;
+    margin: 10px 8px;
+    align-items: flex-start;
+  }
+  .qa-bubble {
+    max-width: 84%;
+    padding: 12px 14px;
+    border-radius: 16px;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    box-shadow: 0 6px 18px rgba(58,43,32,0.06);
+  }
+  .qa-msg.user {
+    justify-content: flex-end;
+  }
+  .qa-msg.user .qa-bubble {
+    background: var(--brown-dark);
+    color: var(--cream);
+    border-top-right-radius: 8px;
+  }
+  .qa-msg.bot .qa-bubble {
+    background: white;
+    color: var(--brown-dark);
+    border-top-left-radius: 8px;
+    border: 1px solid rgba(139,122,106,0.16);
+  }
+  .qa-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .qa-chip {
+    appearance: none;
+    border: 1px solid rgba(139,122,106,0.18);
+    background: rgba(255,249,242,0.85);
+    color: var(--brown-dark);
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-size: 0.92rem;
+    cursor: none;
+    transition: transform 0.2s, border-color 0.2s, background 0.2s;
+    user-select: none;
+  }
+  .qa-chip:hover {
+    transform: translateY(-2px);
+    border-color: rgba(232,115,74,0.28);
+    background: rgba(232,115,74,0.08);
+  }
+  .qa-inputbar {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .qa-input {
+    flex: 1;
+    padding: 12px 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(139,122,106,0.18);
+    outline: none;
+    background: white;
+    color: var(--brown-dark);
+    font-size: 1rem;
+    cursor: none;
+  }
+  .qa-send {
+    padding: 12px 16px;
+    border-radius: 16px;
+    border: none;
+    background: var(--brown-dark);
+    color: var(--cream);
+    font-weight: 700;
+    cursor: none;
+    transition: transform 0.2s, background 0.2s;
+    min-width: 96px;
+  }
+  .qa-send:hover {
+    transform: translateY(-2px);
+    background: var(--orange);
+  }
+
+  /* Down hint between sections */
+  .down-hint{
+    padding: 10px 48px 26px;
+    display: flex;
+    justify-content: center;
+  }
+  .down-hint-link{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--brown-light);
+    background: rgba(255,249,242,0.75);
+    border: 1px solid rgba(139,122,106,0.16);
+    box-shadow: 0 10px 34px rgba(58,43,32,0.06);
+    transition: transform 0.2s, border-color 0.2s, background 0.2s;
+    cursor: none;
+    user-select: none;
+  }
+  .down-hint-link:hover{
+    transform: translateY(-2px);
+    border-color: rgba(232,115,74,0.28);
+    background: rgba(232,115,74,0.06);
+    color: var(--brown-dark);
+  }
+  .down-arrow{
+    font-size: 1.15rem;
+    color: var(--orange);
+    animation: downBounce 1.6s ease-in-out infinite;
+  }
+  @keyframes downBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* Footer */
+  footer {
+    padding: 40px 48px;
+    text-align: center;
+    border-top: 1px solid rgba(139,122,106,0.15);
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-logo {
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+    color: var(--brown);
+  }
+
+  .footer-text {
+    font-size: 0.85rem;
+    color: var(--brown-light);
+  }
+
+  .footer-cat {
+    font-size: 1.5rem;
+    opacity: 0.6;
+  }
+
+  /* Divider decoration */
+  .section-divider {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1.5rem;
+    color: var(--brown-light);
+    opacity: 0.5;
+  }
+  .section-divider.heart-rating {
+    opacity: 1;
+  }
+  .heart-rating-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255,249,242,0.7);
+    border: 1px solid rgba(139,122,106,0.15);
+    box-shadow: 0 8px 28px rgba(58,43,32,0.06);
+  }
+  .heart-btn {
+    appearance: none;
+    border: none;
+    background: transparent;
+    padding: 6px 2px;
+    font-size: 1.35rem;
+    line-height: 1;
+    cursor: none;
+    color: rgba(139,122,106,0.75);
+    transition: transform 0.15s ease, color 0.15s ease;
+  }
+  .heart-btn:hover {
+    transform: translateY(-2px) scale(1.06);
+  }
+  .heart-btn.active,
+  .heart-btn.preview {
+    color: #E84A5F;
+  }
+  .heart-tip {
+    font-size: 0.9rem;
+    color: var(--brown-light);
+    margin-left: 6px;
+    opacity: 0.9;
+    user-select: none;
+  }
+
+  /* Scroll reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    html { cursor: auto; }
+    .cursor-dot, .cursor-ring { display: none; }
+    header { padding: 16px 24px; }
+    .nav-inner { gap: 20px; }
+    nav ul { gap: 20px; }
+    .hero { padding: 100px 24px 60px; }
+    .projects { padding: 60px 24px 80px; }
+    .project-grid { grid-template-columns: 1fr; gap: 28px; }
+    .about { padding: 80px 24px; }
+    .about-content { grid-template-columns: 1fr; gap: 40px; }
+    .about-avatar { max-width: 300px; margin: 0 auto; }
+    .contact { padding: 80px 24px; }
+    .contact-card { padding: 40px 28px; }
+    .footer-content { flex-direction: column; gap: 16px; }
+    .section-title { font-size: 2rem; }
+  }
+
+  @media (max-width: 600px) {
+    nav ul { gap: 14px; }
+    nav a { font-size: 0.85rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Floating animation for doodles */
+  @keyframes doodleFloat1 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(5px, -8px) rotate(3deg); }
+    50% { transform: translate(-3px, -12px) rotate(-2deg); }
+    75% { transform: translate(7px, -4px) rotate(1deg); }
+  }
+  @keyframes doodleFloat2 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(-6px, -10px) rotate(-4deg); }
+    66% { transform: translate(4px, -6px) rotate(2deg); }
+  }
+  @keyframes doodleFloat3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(3px, -8px) scale(1.05); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor-dot" style="transform: translate(1015.79px, 86.644px); width: 8px; height: 8px; background: rgb(232, 115, 74);"></div>
+<div class="cursor-ring" style="transform: translate(862.588px, 137.023px); width: 42px; height: 42px;"></div>
+
+<!-- Header -->
+<header id="header" style="transform: translateY(0px);">
+  <div class="nav-inner">
+    <a href="file:///c%3A/Users/admin/AppData/Roaming/TRAE%20SOLO/ModularData/ai-agent/work-mode-projects/6a0a74f34f75531ffbaf8046/12345.html#hero" class="nav-logo">star</a>
+    <nav>
+      <ul>
+        <li><a href="file:///c%3A/Users/admin/AppData/Roaming/TRAE%20SOLO/ModularData/ai-agent/work-mode-projects/6a0a74f34f75531ffbaf8046/12345.html#projects">项目</a></li>
+        <li><a href="file:///c%3A/Users/admin/AppData/Roaming/TRAE%20SOLO/ModularData/ai-agent/work-mode-projects/6a0a74f34f75531ffbaf8046/12345.html#about">关于我</a></li>
+        <li><a href="file:///c%3A/Users/admin/AppData/Roaming/TRAE%20SOLO/ModularData/ai-agent/work-mode-projects/6a0a74f34f75531ffbaf8046/12345.html#qa">解答</a></li>
+        <li><a href="file:///c%3A/Users/admin/AppData/Roaming/TRAE%20SOLO/ModularData/ai-agent/work-mode-projects/6a0a74f34f75531ffbaf8046/12345.html#contact">联系我</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+  <!-- Doodle decorations -->
+  <svg class="doodle" style="top: 8%; left: 8%; animation: 8s ease-in-out 0s infinite normal none running doodleFloat1; transform: translateY(0px) rotate(0deg);" width="60" height="60" viewBox="0 0 60 60">
+    <path d="M15 30 Q15 15 30 15 Q45 15 45 30 Q45 45 30 45 Q15 45 15 30Z" fill="none" stroke="#5C4A3A" stroke-width="2.5" stroke-linecap="round"></path>
+    <path d="M30 10 L30 20" stroke="#5C4A3A" stroke-width="2" stroke-linecap="round"></path>
+    <circle cx="30" cy="8" r="2" fill="#E8734A"></circle>
+  </svg>
+
+  <svg class="doodle" style="top: 15%; right: 12%; animation: 9s ease-in-out 0s infinite normal none running doodleFloat2; transform: translateY(0px) rotate(4.20735deg);" width="50" height="50" viewBox="0 0 50 50">
+    <polygon points="25,5 30,18 45,18 33,27 37,40 25,32 13,40 17,27 5,18 20,18" fill="none" stroke="#E8734A" stroke-width="2" stroke-linejoin="round"></polygon>
+  </svg>
+
+  <svg class="doodle" style="top: 25%; left: 5%; animation: 7s ease-in-out 0s infinite normal none running doodleFloat3; transform: translateY(0px) rotate(4.54649deg);" width="45" height="45" viewBox="0 0 45 45">
+    <path d="M22 8 Q22 4 26 4 Q30 4 30 8 L30 18 Q30 22 26 22 L22 22 Q18 22 18 18Z" fill="none" stroke="#6B9FD4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M15 15 Q12 12 15 9 Q18 12 15 15Z" fill="none" stroke="#6B9FD4" stroke-width="2"></path>
+  </svg>
+
+  <svg class="doodle" style="top: 20%; right: 8%; animation: 10s ease-in-out 0s infinite normal none running doodleFloat1; transform: translateY(0px) rotate(0.7056deg);" width="55" height="55" viewBox="0 0 55 55">
+    <path d="M27 40 Q27 45 22 45 Q17 45 17 40 L17 15 Q17 10 22 10 L32 10 Q37 10 37 15Z" fill="none" stroke="#8FBF6A" stroke-width="2.5" stroke-linecap="round"></path>
+    <circle cx="22" cy="20" r="1.5" fill="#8FBF6A"></circle>
+    <circle cx="22" cy="28" r="1.5" fill="#8FBF6A"></circle>
+  </svg>
+
+  <svg class="doodle" style="bottom: 20%; left: 10%; animation: 8s ease-in-out 0s infinite normal none running doodleFloat2; transform: translateY(0px) rotate(-3.78401deg);" width="70" height="50" viewBox="0 0 70 50">
+    <ellipse cx="25" cy="28" rx="18" ry="12" fill="none" stroke="#E8A0BF" stroke-width="2.5" stroke-linecap="round"></ellipse>
+    <ellipse cx="45" cy="25" rx="18" ry="14" fill="none" stroke="#E8A0BF" stroke-width="2.5" stroke-linecap="round"></ellipse>
+    <path d="M25 40 Q25 45 30 48 Q35 45 35 40" fill="none" stroke="#E8A0BF" stroke-width="2" stroke-linecap="round"></path>
+  </svg>
+
+  <svg class="doodle" style="bottom: 25%; right: 8%; animation: 7.5s ease-in-out 0s infinite normal none running doodleFloat3; transform: translateY(0px) rotate(-4.79462deg);" width="60" height="60" viewBox="0 0 60 60">
+    <path d="M10 30 L15 15 L20 30 L25 15 L30 30 L35 15 L40 30 L45 15 L50 30" fill="none" stroke="#5C4A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    <circle cx="55" cy="30" r="2" fill="#E8734A"></circle>
+  </svg>
+
+  <svg class="doodle" style="top: 35%; left: 15%; animation: 11s ease-in-out 0s infinite normal none running doodleFloat1; transform: translateY(0px) rotate(-1.39708deg);" width="40" height="40" viewBox="0 0 40 40">
+    <path d="M5 20 Q10 5 20 15 Q30 25 35 10" fill="none" stroke="#F0D26A" stroke-width="2.5" stroke-linecap="round"></path>
+    <circle cx="38" cy="8" r="2" fill="#F0D26A"></circle>
+  </svg>
+
+  <svg class="doodle" style="bottom: 15%; right: 15%; animation: 9.5s ease-in-out 0s infinite normal none running doodleFloat2; transform: translateY(0px) rotate(3.28493deg);" width="80" height="50" viewBox="0 0 80 50">
+    <path d="M5 40 Q10 10 25 20 Q40 30 50 10 Q60 0 70 15 Q75 20 78 10" fill="none" stroke="#5C4A3A" stroke-width="2" stroke-linecap="round"></path>
+    <circle cx="5" cy="42" r="2" fill="#E8734A"></circle>
+  </svg>
+
+  <!-- Cat at bottom -->
+  <svg class="doodle" style="bottom: 8%; left: 50%; transform: translateY(0px) rotate(4.94679deg); animation: 6s ease-in-out 0s infinite normal none running doodleFloat3;" width="100" height="50" viewBox="0 0 100 50">
+    <path d="M10 40 Q10 35 15 30 Q15 25 20 20 Q22 18 25 15 Q28 12 30 18 Q32 12 35 15 Q38 18 40 25 Q45 30 50 35 Q55 30 60 35 Q65 30 70 35 Q75 30 80 35 Q85 38 90 40Z" fill="none" stroke="#5C4A3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M5 40 L1 32 M15 40 Q18 38 20 40 M30 30 Q28 28 26 30 M50 35 Q48 33 46 35 M70 35 Q72 33 74 35 M85 38 Q88 36 90 38" stroke="#5C4A3A" stroke-width="1.5" stroke-linecap="round"></path>
+    <circle cx="25" cy="32" r="1.5" fill="#5C4A3A"></circle>
+    <path d="M85 36 Q90 34 92 38" fill="none" stroke="#5C4A3A" stroke-width="1.5" stroke-linecap="round"></path>
+  </svg>
+
+  <!-- Person illustration -->
+  <svg class="doodle" style="bottom: 12%; right: 5%; animation: 10s ease-in-out 0s infinite normal none running doodleFloat2; transform: translateY(0px) rotate(2.06059deg);" width="120" height="140" viewBox="0 0 120 140">
+    <ellipse cx="70" cy="130" rx="30" ry="8" fill="none" stroke="#5C4A3A" stroke-width="2"></ellipse>
+    <path d="M55 120 Q55 100 60 85 Q65 70 70 55 Q72 50 75 45 Q78 40 80 35" fill="none" stroke="#5C4A3A" stroke-width="2.5" stroke-linecap="round"></path>
+    <circle cx="80" cy="30" r="14" fill="none" stroke="#5C4A3A" stroke-width="2.5"></circle>
+    <path d="M80 16 Q90 10 95 20 Q100 30 95 35 Q90 40 85 38" fill="none" stroke="#5C4A3A" stroke-width="2" stroke-linecap="round"></path>
+    <circle cx="88" cy="28" r="2" fill="#5C4A3A"></circle>
+    <path d="M75 35 Q78 33 77 36" stroke="#5C4A3A" stroke-width="1.5" stroke-linecap="round"></path>
+    <path d="M65 55 Q55 65 50 80" fill="none" stroke="#5C4A3A" stroke-width="2" stroke-linecap="round"></path>
+    <path d="M50 80 Q40 95 45 105" fill="none" stroke="#5C4A3A" stroke-width="2" stroke-linecap="round"></path>
+    <rect x="45" y="95" width="30" height="22" rx="3" fill="none" stroke="#5C4A3A" stroke-width="2"></rect>
+    <circle cx="60" cy="106" r="3" fill="#E8734A" opacity="0.3"></circle>
+    <path d="M75 55 Q85 60 90 75" fill="none" stroke="#5C4A3A" stroke-width="2" stroke-linecap="round"></path>
+    <path d="M90 75 Q95 85 90 95" fill="none" stroke="#5C4A3A" stroke-width="2" stroke-linecap="round"></path>
+  </svg>
+
+  <div class="hero-content" style="transform: translateY(0px); opacity: 1;">
+    <p class="hero-greeting"><span class="hi">Hi</span> 你好，我是 <span class="name">侯星邑</span></p>
+    <p class="hero-intro">
+      所见皆设计，所想皆灵感<br>用作品诠释独特的态度。
+    </p>
+    <div class="hero-cta">
+      <a href="file:///c%3A/Users/admin/AppData/Roaming/TRAE%20SOLO/ModularData/ai-agent/work-mode-projects/6a0a74f34f75531ffbaf8046/12345.html#projects" class="btn-primary">往下看看吧 ↓</a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>向下滚动</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section class="projects" id="projects">
+  <div class="section-header reveal visible">
+    <span class="section-label">✦ 我的作品</span>
+    <h2 class="section-title">精选项目</h2>
+  </div>
+
+  <div class="project-grid">
+    <!-- Project 1: Blind Box APP -->
+    <a class="project-card reveal reveal-delay-1 visible" href="file:///c%3A/Users/admin/AppData/Roaming/TRAE%20SOLO/ModularData/ai-agent/work-mode-projects/6a0a74f34f75531ffbaf8046/project-1.html">
+      <div class="project-thumbnail">
+        <img src="./star — UI &amp; 视觉设计师网页作品集_files/project1.png" alt="盲盒APP设计">
+        <span class="project-badge badge-mobile">C端 · APP</span>
+      </div>
+      <div class="project-body">
+        <p class="project-category">UI / UX / 移动端设计</p>
+        <h3 class="project-name">JOY潮玩APP</h3>
+        <p class="project-desc">一款面向Z世代潮玩爱好者的盲盒社交电商平台，覆盖盲盒购买、重复款交换、二手交易、潮玩资讯、玩家社区等功能模块。</p>
+        <div class="project-tags">
+          <span class="project-tag">Figma</span>
+          <span class="project-tag">原型设计</span>
+          <span class="project-tag">用户研究</span>
+          <span class="project-tag">动效设计</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Project 2: Travel APP -->
+    <a class="project-card reveal reveal-delay-2 visible" href="file:///c%3A/Users/admin/AppData/Roaming/TRAE%20SOLO/ModularData/ai-agent/work-mode-projects/6a0a74f34f75531ffbaf8046/project-2.html">
+      <div class="project-thumbnail">
+        <img src="./star — UI &amp; 视觉设计师网页作品集_files/project2.png" alt="旅行APP设计">
+        <span class="project-badge badge-mobile">C端 · APP</span>
+      </div>
+      <div class="project-body">
+        <p class="project-category">UI / UX / 品牌视觉</p>
+        <h3 class="project-name">疆行APP</h3>
+        <p class="project-desc">疆行App是一款专注于新疆深度旅行的平台，核心解决“新疆太大、景点太散、路线太难规划”的用户痛点。覆盖票务购买、攻略社区、行程规划三大核心模块，同时整合景点推荐、本地美食、文化体验、实时路况预警等特色功能，帮助用户一站式完成从出行决策到落地体验的完整旅行闭环。</p>
+        <div class="project-tags">
+          <span class="project-tag">iOS 设计</span>
+          <span class="project-tag">插画风格</span>
+          <span class="project-tag">情感化设计</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Project 3: ERP System -->
+    <a class="project-card reveal reveal-delay-3" href="file:///c%3A/Users/admin/AppData/Roaming/TRAE%20SOLO/ModularData/ai-agent/work-mode-projects/6a0a74f34f75531ffbaf8046/project-3.html">
+      <div class="project-thumbnail">
+        <img src="./star — UI &amp; 视觉设计师网页作品集_files/project3.png" alt="ERP后台系统">
+        <span class="project-badge badge-bend">B端 · 管理系统</span>
+      </div>
+      <div class="project-body">
+        <p class="project-category">B端 / 数据可视化 / 设计系统</p>
+        <h3 class="project-name">汇智ERP管理系统</h3>
+        <p class="project-desc">针对多子公司、多角色的使用场景，主动梳理采购、库存、财务等模块间的信息流转逻辑，推动解决了跨模块交互中存在的“用户不知道自己填的表单去了哪里”的体验断点问题。库存盘点模块的用户任务完成时间缩短了&nbsp;37%。</p>
+        <div class="project-tags">
+          <span class="project-tag">Design System</span>
+          <span class="project-tag">数据可视化</span>
+          <span class="project-tag">Ant Design</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Project 4: Company Website -->
+    <a class="project-card reveal reveal-delay-4" href="file:///c%3A/Users/admin/AppData/Roaming/TRAE%20SOLO/ModularData/ai-agent/work-mode-projects/6a0a74f34f75531ffbaf8046/project-4.html">
+      <div class="project-thumbnail">
+        <img src="./star — UI &amp; 视觉设计师网页作品集_files/project4.png" alt="公司官网设计">
+        <span class="project-badge badge-brand">品牌 · 官网</span>
+      </div>
+      <div class="project-body">
+        <p class="project-category">品牌设计 / 响应式网页 / 动效</p>
+        <h3 class="project-name">多氟多官网设计</h3>
+        <p class="project-desc">完成公司官网全流程设计(PC+H5响应式),覆盖首页、业务板块、招聘等核心页面。前置调研8家同类型公司官网，整理“竞品反模式清单”，提前规避常见体验及视觉问题</p>
+        <div class="project-tags">
+          <span class="project-tag">Webflow</span>
+          <span class="project-tag">品牌视觉</span>
+          <span class="project-tag">滚动动效</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Project 5: Operation Design -->
+    <a class="project-card reveal reveal-delay-5" href="file:///c%3A/Users/admin/AppData/Roaming/TRAE%20SOLO/ModularData/ai-agent/work-mode-projects/6a0a74f34f75531ffbaf8046/project-5.html">
+      <div class="project-thumbnail">
+        <img src="./star — UI &amp; 视觉设计师网页作品集_files/project5.png" alt="运营设计">
+        <span class="project-badge badge-brand">运营 · 设计</span>
+      </div>
+      <div class="project-body">
+        <p class="project-category">运营设计 / 活动视觉 / 多端适配</p>
+        <h3 class="project-name">运营设计</h3>
+        <p class="project-desc">覆盖活动节点 Banner/H5/IP 全流程:从视觉体系到多渠道投放适配，提升传播效率。</p>
+        <div class="project-tags">
+          <span class="project-tag">Banner</span>
+          <span class="project-tag">H5</span>
+          <span class="project-tag">IP</span>
+          <span class="project-tag">AIGC</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- Section Divider -->
+<div class="section-divider"> ✦ ✦</div>
+
+<!-- About Section -->
+<section class="about" id="about">
+  <div class="section-header reveal">
+    <span class="section-label">✦ 关于我</span>
+    <h2 class="section-title">我是侯星邑</h2>
+  </div>
+
+  <div class="about-content">
+    <div class="about-image reveal">
+      <div class="about-avatar">
+        <img src="./star — UI &amp; 视觉设计师网页作品集_files/avatar.jpg" alt="侯星邑个人照片">
+      </div>
+      <div class="about-float-badge"> 2+年 经验</div>
+    </div>
+
+    <div class="about-text reveal reveal-delay-2">
+      <h3>用设计连接商业与美学</h3>
+      <p>
+        Hi~我是侯星邑，设计专业科班出身，拥有2年以上UI/UX经验，在AIGC高速发展的时代下，我持续深耕 AIGC、VibeCoding等前沿技术，擅长通过文字指令快速生成创意内容，并且相信技术与创意的融合能带来更高效、更乐观的创作方式。
+      </p>
+      <p>
+        精通Figma、Sketch，Al，熟练使用PS、AE、哩布哩布、即梦等设计软件，根据需求输出交互原型、U视觉设计、组件化规范制定、汇报及调整设计方案，并前后参与到前期调研、需求分析、设计走查、分析验证，能够独立完成从0到1的项目。此外，能够协助进行品牌设计、海报设计。
+      </p>
+
+      <div class="skills-grid">
+        <div class="skill-item">
+          <span class="skill-icon">🎨</span> UI 界面设计
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon">📱</span> 移动端 APP
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon">📊</span> B端系统设计
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon">✨</span> 品牌视觉识别
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon">🎬</span> 动效与原型
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon">🤖</span> AIGC运用
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section Divider (Heart Rating) -->
+<div class="section-divider heart-rating" id="heartRating" aria-label="心心评分">
+  <div class="heart-rating-wrap" role="group" aria-label="给作品集打分">
+    <button class="heart-btn" type="button" data-value="1" aria-label="1 心">♡</button>
+    <button class="heart-btn" type="button" data-value="2" aria-label="2 心">♡</button>
+    <button class="heart-btn" type="button" data-value="3" aria-label="3 心">♡</button>
+    <button class="heart-btn" type="button" data-value="4" aria-label="4 心">♡</button>
+    <button class="heart-btn" type="button" data-value="5" aria-label="5 心">♡</button>
+    <span class="heart-tip" id="heartTip">点击评分</span>
+  </div>
+</div>
+
+<!-- Q&A Section -->
+<section class="qa" id="qa">
+  <div class="section-header reveal">
+    <span class="section-label">✦ 问答</span>
+    <h2 class="section-title">想问点什么？</h2>
+  </div>
+
+  <div class="qa-card reveal reveal-delay-1">
+    <div class="qa-header">
+      <h3 class="qa-title">小助手在线</h3>
+      <p class="qa-subtitle">输入问题，我会自动回答</p>
+    </div>
+
+    <div class="qa-messages" id="qaMessages" aria-live="polite"><div class="qa-msg bot"><div class="qa-bubble">Hi～我是侯星邑的小助手！你可以问我：技能、项目、AIGC、联系方式等。</div></div></div>
+
+    <div class="qa-chips" id="qaChips">
+      <button class="qa-chip" type="button" data-q="你擅长什么？">你擅长什么？</button>
+      <button class="qa-chip" type="button" data-q="怎么联系你？">怎么联系你？</button>
+      <button class="qa-chip" type="button" data-q="你会AIGC吗？">你会AIGC吗？</button>
+      <button class="qa-chip" type="button" data-q="你做过哪些类型项目？">你做过哪些类型项目？</button>
+      <button class="qa-chip" type="button" data-q="工作几年了？">工作几年了？</button>
+      <button class="qa-chip" type="button" data-q="参与过几个项目？">参与过几个项目？</button>
+      <button class="qa-chip" type="button" data-q="你现在在找工作吗？">你现在在找工作吗？</button>
+      <button class="qa-chip" type="button" data-q="你常用哪些设计工具？">你常用哪些设计工具？</button>
+      <button class="qa-chip" type="button" data-q="你能输出哪些交付物？">你能输出哪些交付物？</button>
+      <button class="qa-chip" type="button" data-q="你做设计的一般流程是怎样的？">你做设计的一般流程是怎样的？</button>
+      <button class="qa-chip" type="button" data-q="你会哪些AIGC工具或方法？">你会哪些AIGC工具或方法？</button>
+      <button class="qa-chip" type="button" data-q="你的优势是什么？">你的优势是什么？</button>
+      <button class="qa-chip" type="button" data-q="最快多久可以到岗？">最快多久可以到岗？</button>
+    </div>
+
+    <div class="qa-inputbar">
+      <input class="qa-input" id="qaInput" type="text" placeholder="例如：你会用哪些设计工具？" autocomplete="off">
+      <button class="qa-send" id="qaSend" type="button">发送</button>
+    </div>
+  </div>
+</section>
+
+<!-- Down hint -->
+<div class="down-hint reveal">
+  <a class="down-hint-link" href="file:///c%3A/Users/admin/AppData/Roaming/TRAE%20SOLO/ModularData/ai-agent/work-mode-projects/6a0a74f34f75531ffbaf8046/12345.html#contact" aria-label="向下查看联系我">
+    <span class="down-arrow">↓</span>
+    <span>下滑还有内容 · 去联系我</span>
+  </a>
+</div>
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+  <!-- Decorative doodles -->
+  <svg class="doodle" style="top:10%;left:5%;animation:doodleFloat1 8s ease-in-out infinite" width="50" height="50" viewBox="0 0 50 50">
+    <path d="M10 25 Q15 10 25 15 Q35 20 40 10" fill="none" stroke="#6B9FD4" stroke-width="2" stroke-linecap="round"></path>
+  </svg>
+  <svg class="doodle" style="top:15%;right:8%;animation:doodleFloat2 9s ease-in-out infinite" width="40" height="40" viewBox="0 0 40 40">
+    <polygon points="20,5 24,15 35,15 26,22 29,32 20,26 11,32 14,22 5,15 16,15" fill="none" stroke="#E8A0BF" stroke-width="2"></polygon>
+  </svg>
+
+  <div class="section-header reveal">
+    <span class="section-label">✦ 联系我</span>
+    <h2 class="section-title">一起创造点什么？</h2>
+  </div>
+
+  <div class="contact-card reveal reveal-delay-1">
+    <p>
+      目前正在积极寻找工作机会，具备相关专业技能与项目经验，期待能与<br>
+      合适的团队、企业展开合作。<br>
+      随时欢迎联系沟通!我通常会在 24 小时内回复。
+    </p>
+    <div class="contact-links">
+      <a href="mailto:13723175883@163.com" class="contact-link link-email copyable" data-copy="13723175883@163.com">
+        ✉️ 13723175883@163.com
+      </a>
+      <a href="tel:13723175883" class="contact-link link-social copyable" data-copy="13723175883">
+        📞 13723175883
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">star</div>
+    <div class="footer-text">© 2025 Star. 用 ❤️ 和 Figma 制作</div>
+    <div class="footer-cat">🐱</div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // === Custom Cursor ===
+  var cursorDot = document.querySelector('.cursor-dot');
+  var cursorRing = document.querySelector('.cursor-ring');
+  var mouseX = 0, mouseY = 0;
+  var dotX = 0, dotY = 0;
+  var ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', function(e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function updateCursor() {
+    dotX += (mouseX - dotX) * 0.45;
+    dotY += (mouseY - dotY) * 0.45;
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+
+    cursorDot.style.transform = 'translate(' + (dotX - 4) + 'px, ' + (dotY - 4) + 'px)';
+    cursorRing.style.transform = 'translate(' + (ringX - 21) + 'px, ' + (ringY - 21) + 'px)';
+
+    requestAnimationFrame(updateCursor);
+  }
+  updateCursor();
+
+  // Hover effect on interactive elements
+  var interactiveElements = document.querySelectorAll('a, .project-card, .btn-primary, .skill-item, .contact-link, .qa-chip, .qa-send, .qa-input, .heart-btn');
+  interactiveElements.forEach(function(el) {
+    el.addEventListener('mouseenter', function() {
+      cursorRing.style.width = '60px';
+      cursorRing.style.height = '60px';
+      cursorDot.style.width = '12px';
+      cursorDot.style.height = '12px';
+      cursorDot.style.background = '#fff';
+    });
+    el.addEventListener('mouseleave', function() {
+      cursorRing.style.width = '42px';
+      cursorRing.style.height = '42px';
+      cursorDot.style.width = '8px';
+      cursorDot.style.height = '8px';
+      cursorDot.style.background = '#E8734A';
+    });
+  });
+
+  // === Scroll Reveal Animation ===
+  var revealElements = document.querySelectorAll('.reveal');
+
+  function checkReveal() {
+    var windowHeight = window.innerHeight;
+    revealElements.forEach(function(el) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top < windowHeight * 0.85) {
+        el.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', checkReveal);
+  checkReveal(); // Initial check
+
+  // === Parallax Effect on Hero Doodles ===
+  var heroDoodles = document.querySelectorAll('.hero .doodle');
+
+  window.addEventListener('scroll', function() {
+    var scrollY = window.scrollY;
+    heroDoodles.forEach(function(doodle, index) {
+      var speed = 0.02 + (index % 3) * 0.015;
+      var yPos = scrollY * speed;
+      var rotation = Math.sin(scrollY * 0.001 + index) * 5;
+      doodle.style.transform = 'translateY(' + yPos + 'px) rotate(' + rotation + 'deg)';
+    });
+  });
+
+  // === Project Card Perspective Tilt Effect ===
+  var projectCards = document.querySelectorAll('.project-card');
+
+  projectCards.forEach(function(card) {
+    card.addEventListener('mousemove', function(e) {
+      var rect = card.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      var centerX = rect.width / 2;
+      var centerY = rect.height / 2;
+
+      var rotateX = ((y - centerY) / centerY) * -8;
+      var rotateY = ((x - centerX) / centerX) * 8;
+
+      card.style.transition = 'none';
+      card.style.transform = 'perspective(1200px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-8px)';
+    });
+
+    card.addEventListener('mouseleave', function() {
+      card.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      card.style.transform = 'perspective(1200px) rotateX(0) rotateY(0) translateY(0)';
+    });
+  });
+
+  // === Header scroll hide/show ===
+  var header = document.getElementById('header');
+  var lastScrollY = 0;
+
+  window.addEventListener('scroll', function() {
+    var currentScrollY = window.scrollY;
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      header.style.transform = 'translateY(-100%)';
+    } else {
+      header.style.transform = 'translateY(0)';
+    }
+    lastScrollY = currentScrollY;
+  });
+
+  // === Smooth scroll for nav links ===
+  document.querySelectorAll('nav a, .nav-logo').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var targetId = this.getAttribute('href');
+      var targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        var offsetTop = targetEl.offsetTop - 80;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // === Parallax text effect on scroll ===
+  var heroContent = document.querySelector('.hero-content');
+
+  window.addEventListener('scroll', function() {
+    var scrollY = window.scrollY;
+    if (heroContent) {
+      heroContent.style.transform = 'translateY(' + (scrollY * 0.15) + 'px)';
+      heroContent.style.opacity = 1 - (scrollY / (window.innerHeight * 0.8));
+    }
+  });
+
+  // === Copy email/phone on click ===
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function(resolve, reject) {
+      try {
+        var textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'fixed';
+        textarea.style.left = '-9999px';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        resolve();
+      } catch (e) {
+        reject(e);
+      }
+    });
+  }
+
+  document.querySelectorAll('.contact-link.copyable[data-copy]').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      var text = this.getAttribute('data-copy') || '';
+      var self = this;
+      copyText(text).then(function() {
+        self.classList.add('copied');
+        setTimeout(function() {
+          self.classList.remove('copied');
+        }, 1200);
+      });
+    });
+  });
+
+  // === Q&A mini chat ===
+  var qaMessages = document.getElementById('qaMessages');
+  var qaInput = document.getElementById('qaInput');
+  var qaSend = document.getElementById('qaSend');
+  var qaChips = document.getElementById('qaChips');
+
+  function appendMsg(role, text) {
+    if (!qaMessages) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'qa-msg ' + role;
+    var bubble = document.createElement('div');
+    bubble.className = 'qa-bubble';
+    bubble.textContent = text;
+    wrap.appendChild(bubble);
+    qaMessages.appendChild(wrap);
+    qaMessages.scrollTop = qaMessages.scrollHeight;
+  }
+
+  function getAnswer(qRaw) {
+    var q = (qRaw || '').trim();
+    var s = q.toLowerCase();
+
+    if (!q) return '你可以先输入一个问题哦～';
+
+    // 联系方式
+    if (s.includes('联系') || s.includes('邮箱') || s.includes('email') || s.includes('电话') || s.includes('手机号') || s.includes('wechat') || s.includes('微信')) {
+      return '当然可以！邮箱：13723175883@163.com；电话：13723175883（点击页面里的按钮可一键复制）。';
+    }
+
+    // 技能/工具
+    if (s.includes('擅长') || s.includes('技能') || s.includes('会什么') || s.includes('工具') || s.includes('figma') || s.includes('sketch') || s.includes('ps') || s.includes('ae')) {
+      return '我主要做 UI/UX 与品牌视觉，常用 Figma / Sketch / AI / PS / AE 等，也能输出交互原型、视觉稿与组件化规范。';
+    }
+
+    // AIGC
+    if (s.includes('aigc') || s.includes('vibecoding') || s.includes('提示词') || s.includes('prompt') || s.includes('生成')) {
+      return '会的～我会把 AIGC 融入设计流程：用文字指令快速生成创意方向/文案/视觉探索，再结合专业设计工具进行完善落地。';
+    }
+
+    // 工作年限
+    if ((s.includes('几年') || s.includes('年限') || s.includes('经验')) && (s.includes('工作') || s.includes('从业') || s.includes('ui') || s.includes('ux'))) {
+      return '我有 2+ 年 UI/UX 相关经验，持续在 AIGC 与设计结合方向上深耕。';
+    }
+
+    // 是否在找工作
+    if (s.includes('找工作') || s.includes('工作机会') || s.includes('求职') || s.includes('招聘') || s.includes('在找') || s.includes('机会')) {
+      return '是的，我目前正在积极寻找工作机会，期待与合适的团队/企业展开合作。';
+    }
+
+    // 参与项目数量（避免夸大，给出保守回答）
+    if ((s.includes('几个') || s.includes('多少')) && (s.includes('项目') || s.includes('案例') || s.includes('作品'))) {
+      return '我参与过多个 UI/UX 与品牌相关项目（APP、ERP、官网、运营等），具体案例你可以在项目详情里逐个查看。';
+    }
+
+    // 交付物
+    if (s.includes('交付') || s.includes('产出') || s.includes('输出') || s.includes('deliver') || s.includes('文档')) {
+      return '我可以输出：需求梳理/信息架构、用户流程与线框稿、交互原型、视觉设计稿、组件化规范/Design System、设计走查与验收问题清单等。';
+    }
+
+    // 设计流程
+    if (s.includes('流程') || s.includes('怎么做') || s.includes('如何做') || s.includes('步骤') || s.includes('方法')) {
+      return '一般流程是：前期调研&需求分析 → 信息架构&用户流程 → 交互原型 → 视觉探索&定稿 → 组件化规范 → 走查/验收 → 数据或反馈复盘迭代。';
+    }
+
+    // 更细的 AIGC 工具/方法
+    if (s.includes('aigc工具') || s.includes('aigc 工具') || s.includes('工具') && (s.includes('aigc') || s.includes('生成'))) {
+      return '我会用 AIGC 做灵感探索/文案/排版方向/图像生成等，并会整理提示词（Prompt）模板，让产出更可控、更高效。';
+    }
+
+    // 优势/亮点
+    if (s.includes('优势') || s.includes('亮点') || s.includes('强项') || s.includes('为什么')) {
+      return '我的优势是：审美与规范化能力并重、能把复杂需求拆解成清晰流程与界面、并善于用 AIGC 提升探索效率与交付速度。';
+    }
+
+    // 到岗时间
+    if (s.includes('到岗') || s.includes('入职') || s.includes('什么时候开始') || s.includes('何时开始')) {
+      return '到岗时间我可以根据你的招聘节奏灵活沟通安排～';
+    }
+
+    // 项目
+    if (s.includes('项目') || s.includes('作品') || s.includes('案例') || s.includes('做过')) {
+      return '我做过：潮玩电商 APP、深度旅行 APP、ERP 管理系统、官网设计、运营设计等。你想看哪个方向？';
+    }
+
+    // 默认兜底
+    return '这个问题我也想认真回答～你可以换个问法，或试试点下面的快捷问题按钮。';
+  }
+
+  function ask(q) {
+    appendMsg('user', q);
+    // typing
+    appendMsg('bot', '让我想想…');
+    var lastBot = qaMessages ? qaMessages.querySelector('.qa-msg.bot:last-child .qa-bubble') : null;
+    setTimeout(function() {
+      var ans = getAnswer(q);
+      if (lastBot) lastBot.textContent = ans;
+      if (qaMessages) qaMessages.scrollTop = qaMessages.scrollHeight;
+    }, 450);
+  }
+
+  if (qaMessages) {
+    appendMsg('bot', 'Hi～我是侯星邑的小助手！你可以问我：技能、项目、AIGC、联系方式等。');
+  }
+
+  if (qaSend && qaInput) {
+    qaSend.addEventListener('click', function() {
+      var q = qaInput.value;
+      qaInput.value = '';
+      ask(q);
+      qaInput.focus();
+    });
+
+    qaInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        qaSend.click();
+      }
+    });
+  }
+
+  if (qaChips) {
+    qaChips.querySelectorAll('.qa-chip[data-q]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var q = this.getAttribute('data-q') || '';
+        if (qaInput) qaInput.value = q;
+        if (qaSend) qaSend.click();
+      });
+    });
+  }
+
+  // === Heart rating ===
+  var heartRating = document.getElementById('heartRating');
+  var heartTip = document.getElementById('heartTip');
+  var heartBtns = heartRating ? heartRating.querySelectorAll('.heart-btn[data-value]') : [];
+  var currentRating = 0;
+
+  function applyHearts(value, isPreview) {
+    heartBtns.forEach(function(btn) {
+      var v = parseInt(btn.getAttribute('data-value') || '0', 10);
+      var on = v <= value;
+      btn.classList.toggle('preview', !!isPreview && on);
+      btn.classList.toggle('active', !isPreview && on);
+      btn.textContent = on ? '♥' : '♡';
+    });
+  }
+
+  function setRating(value) {
+    currentRating = value;
+    applyHearts(currentRating, false);
+    if (heartTip) heartTip.textContent = currentRating ? ('已评分：' + currentRating + '/5') : '点击评分';
+    try { localStorage.setItem('heartRating', String(currentRating)); } catch (e) {}
+  }
+
+  // init from storage
+  try {
+    var saved = parseInt(localStorage.getItem('heartRating') || '0', 10);
+    if (!isNaN(saved) && saved >= 0 && saved <= 5) setRating(saved);
+  } catch (e) {}
+
+  heartBtns.forEach(function(btn) {
+    btn.addEventListener('mouseenter', function() {
+      var v = parseInt(this.getAttribute('data-value') || '0', 10);
+      applyHearts(v, true);
+      if (heartTip) heartTip.textContent = '点击评分：' + v + '/5';
+    });
+    btn.addEventListener('mouseleave', function() {
+      // revert preview to saved rating
+      applyHearts(currentRating, false);
+      if (heartTip) heartTip.textContent = currentRating ? ('已评分：' + currentRating + '/5') : '点击评分';
+    });
+    btn.addEventListener('click', function() {
+      var v = parseInt(this.getAttribute('data-value') || '0', 10);
+      setRating(v);
+    });
+  });
+
+});
+</script>
+
+
+
+</body></html>
