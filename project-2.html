@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>疆行APP｜项目详情</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --cream:#FFF9F2;
+      --brown-dark:#3A2B20;
+      --brown-light:#8B7A6A;
+      --orange:#E8734A;
+      --card:#ffffff;
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--cream);
+      color:var(--brown-dark);
+      font-family:'Source Han Sans SC','Noto Sans SC',sans-serif;
+      line-height:1.8;
+    }
+    .container{
+      max-width:980px;
+      margin:0 auto;
+      padding:96px 24px 80px;
+    }
+    .back{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color:var(--brown-dark);
+      font-weight:500;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.7);
+      border:1px solid rgba(139,122,106,0.18);
+      backdrop-filter: blur(10px);
+    }
+    .back:hover{border-color:rgba(232,115,74,0.45)}
+
+    /* Top bar (project switch) */
+    .topbar{
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(255,249,242,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(139,122,106,0.15);
+    }
+    .topbar-inner{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .project-tabs{
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+    .tab{
+      text-decoration: none;
+      color: var(--brown-light);
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: all 0.25s;
+    }
+    .tab:hover{
+      color: var(--brown-dark);
+      border-color: rgba(139,122,106,0.22);
+      background: rgba(255,255,255,0.6);
+    }
+    .tab.active{
+      color: var(--brown-dark);
+      background: rgba(232,115,74,0.12);
+      border-color: rgba(232,115,74,0.22);
+    }
+    .title{
+      margin:24px 0 10px;
+      font-size:2.2rem;
+      line-height:1.25;
+      letter-spacing:0.02em;
+    }
+    .meta{
+      color:var(--brown-light);
+      margin:0 0 28px;
+      font-size:0.95rem;
+    }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:0 10px 40px rgba(58,43,32,0.08);
+    }
+    .cover{
+      width:100%;
+      aspect-ratio:16/10;
+      object-fit:cover;
+      display:block;
+    }
+    .content{padding:28px 28px 30px;}
+    .desc{margin:0 0 18px;color:var(--brown-dark)}
+    .tags{display:flex;flex-wrap:wrap;gap:10px}
+    .tag{
+      font-size:0.9rem;
+      padding:6px 12px;
+      border-radius:999px;
+      background:rgba(232,115,74,0.10);
+      border:1px solid rgba(232,115,74,0.18);
+      color:var(--brown-dark);
+    }
+
+    .section-title{
+      margin:28px 0 12px;
+      font-size:1.2rem;
+      letter-spacing:0.08em;
+      color:var(--brown-light);
+    }
+    .gallery{
+      margin-top:14px;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+    .shot{
+      width:100%;
+      border-radius:16px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:0 10px 40px rgba(58,43,32,0.08);
+      border:1px solid rgba(139,122,106,0.16);
+    }
+    .shot img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="back" href="index.html#projects">← 返回作品集</a>
+      <nav class="project-tabs" aria-label="项目切换">
+        <a class="tab" href="project-1.html">项目一</a>
+        <a class="tab active" href="project-2.html">项目二</a>
+        <a class="tab" href="project-3.html">项目三</a>
+        <a class="tab" href="project-4.html">项目四</a>
+        <a class="tab" href="project-5.html">项目五</a>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <h1 class="title">疆行APP</h1>
+    <p class="meta">项目二 · C端 · APP</p>
+
+    <div class="card">
+      <img class="cover" src="assets/project2.png" alt="疆行APP 项目封面" />
+      <div class="content">
+        <p class="desc">疆行App是一款专注于新疆深度旅行的平台，核心解决“新疆太大、景点太散、路线太难规划”的用户痛点。覆盖票务购买、攻略社区、行程规划三大核心模块，同时整合景点推荐、本地美食、文化体验、实时路况预警等特色功能，帮助用户一站式完成从出行决策到落地体验的完整旅行闭环。</p>
+        <div class="tags">
+          <span class="tag">iOS 设计</span>
+          <span class="tag">插画风格</span>
+          <span class="tag">情感化设计</span>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">✦ 项目展示</h2>
+    <div class="gallery">
+      <div class="shot"><img src="assets/project2/18.png" alt="疆行APP - 18" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/19.png" alt="疆行APP - 19" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/20.png" alt="疆行APP - 20" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/21.png" alt="疆行APP - 21" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/22.png" alt="疆行APP - 22" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/23.png" alt="疆行APP - 23" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/24.png" alt="疆行APP - 24" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/25.png" alt="疆行APP - 25" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/25.1.png" alt="疆行APP - 25.1" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/26.png" alt="疆行APP - 26" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/27.png" alt="疆行APP - 27" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/28.png" alt="疆行APP - 28" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/29.png" alt="疆行APP - 29" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/30.png" alt="疆行APP - 30" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/31.png" alt="疆行APP - 31" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/32.png" alt="疆行APP - 32" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/32.1.png" alt="疆行APP - 32.1" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/33.png" alt="疆行APP - 33" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/34.png" alt="疆行APP - 34" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/35.png" alt="疆行APP - 35" loading="lazy"></div>
+      <div class="shot"><img src="assets/project2/36.png" alt="疆行APP - 36" loading="lazy"></div>
+    </div>
+  </div>
+</body>
+</html>
